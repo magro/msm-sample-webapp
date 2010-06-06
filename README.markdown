@@ -8,6 +8,7 @@ It comes with two tomcats (in `runtime/`) that are configured with msm+kryo stor
 
 # Building the webapp / war file
 For building you have two options: buildr or maven2.
+
 1. With buildr: After installing (http://buildr.apache.org/installing.html) just run
     $ buildr package test=no
 2. With maven (you probably have it already installed) you can run
