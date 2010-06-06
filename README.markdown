@@ -27,4 +27,4 @@ To start both tomcats just run
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
 
-Now you can access both tomcats with your browser on `http://localhost:8081/` and `http://localhost:8082/`.
+Now you can access both tomcats with your browser on [http://localhost:8081/](http://localhost:8081/) and [http://localhost:8082/](http://localhost:8082/).
