@@ -2,15 +2,15 @@ A simple (wicket) webapp for testing and benchmarking memcached-session-manager 
 It comes with two tomcats (in `runtime/`) that are configured with msm+kryo storing sessions in memcached.
 
 # Prerequisites
-1) Buildr/Maven: you should have installed on of both so that you're able to build the webapp. For buildr see http://buildr.apache.org/installing.html.
-2) memcached: you should have installed memcached so that you can run the webapp with sessions replicated to memcached
-3) I don't mention java here :-)
+1. Buildr/Maven: you should have installed on of both so that you're able to build the webapp. For buildr see http://buildr.apache.org/installing.html.
+2. memcached: you should have installed memcached so that you can run the webapp with sessions replicated to memcached
+3. I don't mention java here :-)
 
 # Building the webapp / war file
 For building you have two options: buildr or maven2.
-1) With buildr: After installing (http://buildr.apache.org/installing.html) just run
+1. With buildr: After installing (http://buildr.apache.org/installing.html) just run
     $ buildr package test=no
-2) With maven (you probably have it already installed) you can run
+2. With maven (you probably have it already installed) you can run
     $ mvn -Dmaven.test.skip=true package
    As you will probably get some error that you need to install some dependencies,
    you have to follow mvn's instructions. All required msm and kryo libs are located in
