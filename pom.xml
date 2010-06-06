@@ -2,12 +2,12 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
 >
     <modelVersion>4.0.0</modelVersion>
-    <groupId>de.javakaffee.msm.bench</groupId>
-    <artifactId>msm-benchmark-webapp</artifactId>
+    <groupId>de.javakaffee.msm.sample</groupId>
+    <artifactId>msm-sample-webapp</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <!-- TODO project name  -->
-    <name>quickstart</name>
+    <name>msm-sample-webapp</name>
     <description></description>
     <!--
         TODO <organization> <name>company name</name> <url>company

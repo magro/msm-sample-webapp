@@ -22,10 +22,10 @@ MSM_KRYO = artifact('de.javakaffee.web.msm:msm-kryo-serializer:jar:1.3.3').from(
 # testing
 JUNIT = 'junit:junit:jar:4.5'
 
-desc 'memcached-session-manager benchmark webapp'
-define 'msm-benchmark-webapp' do
+desc 'memcached-session-manager sample webapp'
+define 'msm-sample-webapp' do
 
-  project.group = 'de.javakaffee.msm.bench'
+  project.group = 'de.javakaffee.msm.sample'
   project.version = '1.0-SNAPSHOT'
   
   compile.with SERVLET_API, SLF4J, WICKET, WICKET_EXT, WICKET_STUFF_ANNOT, JODA
@@ -34,6 +34,6 @@ define 'msm-benchmark-webapp' do
   test.using :testng
   
   package(:war).libs += artifacts(KRYO, REFLECTASM, MINLOG, ASM, KRYO_SERIALIZERS, MSM_KRYO)
-  package :war, :id => 'msm-benchmark-webapp'
+  package :war, :id => 'msm-sample-webapp'
   
 end
