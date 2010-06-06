@@ -1,5 +1,5 @@
-A simple (wicket) webapp for testing and benchmarking [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
-It comes with two tomcats (in `runtime/`) that are configured with msm+kryo storing sessions in memcached.
+A sample (wicket) webapp for playing with [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
+It comes with two tomcats (in `runtime/`) that are configured with msm+kryo (msm kryo-serializer) storing sessions in memcached.
 
 # Prerequisites
 1. [Buildr](http://buildr.apache.org)/Maven: you should have installed on of both so that you're able to build the webapp. For buildr see [Installing & Running](http://buildr.apache.org/installing.html).
