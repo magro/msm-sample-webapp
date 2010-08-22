@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app
+     PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>Railo</display-name>
+	<servlet>
+		<servlet-name>CFMLServlet</servlet-name>
+		<description>CFML runtime Engine</description>
+		<servlet-class>railo.loader.servlet.CFMLServlet</servlet-class>
+		<init-param>
+	      <param-name>configuration</param-name>
+	      <param-value>/WEB-INF/railo/</param-value>
+	      <description>Configuraton directory</description>
+	    </init-param>	
+		<!-- init-param>
+	      <param-name>railo-server-root</param-name>
+	      <param-value>.</param-value>
+	      <description>directory where railo root directory is stored</description>
+	    </init-param -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	<servlet>
+		<servlet-name>AMFServlet</servlet-name>
+		<description>AMF Servlet for flash remoting</description>
+		<servlet-class>railo.loader.servlet.AMFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	<servlet>
+		<servlet-name>FileServlet</servlet-name>
+		<description>File Servlet for simple files</description>
+		<servlet-class>railo.loader.servlet.FileServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>	 
+
+
+	<servlet-mapping>
+		<servlet-name>CFMLServlet</servlet-name>
+		<url-pattern>*.cfm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CFMLServlet</servlet-name>
+		<url-pattern>*.cfml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CFMLServlet</servlet-name>
+		<url-pattern>*.cfc</url-pattern>
+	</servlet-mapping> 
+	<servlet-mapping> 
+		<servlet-name>AMFServlet</servlet-name> 
+		<url-pattern>/flashservices/gateway/*</url-pattern> 
+	</servlet-mapping>
+	<servlet-mapping> 
+		<servlet-name>FileServlet</servlet-name> 
+		<url-pattern>/</url-pattern> 
+	</servlet-mapping> 
+	
+<welcome-file-list>
+	  <welcome-file>index.cfm</welcome-file>
+	<welcome-file>index.cfml</welcome-file>
+</welcome-file-list>
+
+</web-app>

@@ -35,11 +35,10 @@
     <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
 	    memcachedNodes="n1:localhost:11211 n2:localhost:11212"
 	    failoverNodes="n1"
-	    requestUriIgnorePattern=".*\.(png|gif|jpg|css|js|ico)$"
+	    requestUriIgnorePattern=".*(\.(png|gif|jpg|css|js|ico)(\.cfm)?|railo-context/form\.cfm)$"
 	    sessionBackupAsync="false"
 	    sessionBackupTimeout="100"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
-            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketSerializerFactory"
     />
     
     <!-- 

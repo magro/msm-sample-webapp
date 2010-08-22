@@ -1,0 +1,24 @@
+"Severity","ThreadID","Date","Time","Application","Message"
+"ERROR","web-0","04/13/2010","01:15:18","","Page /railocontext/admin.cfm [/home/magro/proj/msm-benchmark-webapp/runtime/apache-tomcat-6.0.20/webapps/railo/railocontext/admin.cfm] not found
+	at railo.runtime.PageSourceImpl.loadPage(PageSourceImpl.java:117):117
+	at railo.runtime.PageContextImpl.doInclude(PageContextImpl.java:615):615
+	at railo.runtime.listener.ClassicAppListener._onRequest(ClassicAppListener.java:35):35
+	at railo.runtime.listener.MixedAppListener.onRequest(MixedAppListener.java:24):24
+	at railo.runtime.PageContextImpl.execute(PageContextImpl.java:1709):1709
+	at railo.runtime.engine.CFMLEngineImpl.serviceCFML(CFMLEngineImpl.java:261):261
+	at railo.loader.servlet.CFMLServlet.service(CFMLServlet.java:32):32
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717):717
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290):290
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206):206
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233):233
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191):191
+	at de.javakaffee.web.msm.SessionTrackerValve.invoke(SessionTrackerValve.java:90):90
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128):128
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102):102
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109):109
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293):293
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849):849
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583):583
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454):454
+	at java.lang.Thread.run(Thread.java:636):636
+"
