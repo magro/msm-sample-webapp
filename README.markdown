@@ -11,7 +11,7 @@ For building you have two options: buildr or maven2.
 
 1. With buildr: After [installing buildr](http://buildr.apache.org/installing.html) just run
     `$ buildr package test=no`
-2. With maven (you probably have it already installed) you first should install dependencies via `$ ./install-mvn-deps.sh` (this installs jars from `lib/`), then you can run
+2. With maven you first should install dependencies via `$ ./install-mvn-deps.sh` (this installs jars from `lib/`), then you can run
     `$ mvn -Dmaven.test.skip=true package`
    to build the web application.
 
