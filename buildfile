@@ -12,12 +12,12 @@ WICKET_STUFF_ANNOT = transitive( 'org.wicketstuff:annotation:jar:1.4-SNAPSHOT' )
 JODA = 'joda-time:joda-time:jar:1.6'
 
 # Kryo
-KRYO_SERIALIZERS = artifact( 'de.javakaffee:kryoserializers:jar:0.6' ).from(file('lib/kryo-serializers-0.6.jar'))
-KRYO = artifact( 'com.esotericsoftware:kryo:jar:1.02' ).from( file( 'lib/kryo-1.02.jar' ) )
-REFLECTASM = artifact('com.esotericsoftware:reflectasm:jar:0.8').from(file('lib/reflectasm-0.8.jar'))
+KRYO_SERIALIZERS = artifact( 'de.javakaffee:kryoserializers:jar:0.8' ).from(file('lib/kryo-serializers-0.8.jar'))
+KRYO = artifact( 'com.esotericsoftware:kryo:jar:1.03' ).from( file( 'lib/kryo-1.02.jar' ) )
+REFLECTASM = artifact('com.esotericsoftware:reflectasm:jar:0.9').from(file('lib/reflectasm-0.9.jar'))
 MINLOG = artifact('com.esotericsoftware:minlog:jar:1.2').from(file('lib/minlog-1.2.jar'))
 ASM = 'asm:asm:jar:3.2'
-MSM_KRYO = artifact('de.javakaffee.web.msm:msm-kryo-serializer:jar:1.3.3').from(file('lib/msm-kryo-serializer-1.3.3.jar'))
+MSM_KRYO = artifact('de.javakaffee.web.msm:msm-kryo-serializer:jar:1.3.5').from(file('lib/msm-kryo-serializer-1.3.5.jar'))
 
 # testing
 JUNIT = 'junit:junit:jar:4.5'
