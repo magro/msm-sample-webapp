@@ -2,7 +2,7 @@ A sample (wicket) webapp for playing with [memcached-session-manager](http://cod
 It comes with two tomcats (in `runtime/`) that are configured with msm+kryo (msm kryo-serializer) storing sessions in memcached.
 
 # Prerequisites
-1. [Buildr](http://buildr.apache.org)/Maven: you should have installed on of both so that you're able to build the webapp. For buildr see [Installing & Running](http://buildr.apache.org/installing.html).
+1. [Buildr](http://buildr.apache.org)/[Maven](http://maven.apache.org): you should have installed one of both so that you're able to build the webapp. For buildr see [Installing & Running](http://buildr.apache.org/installing.html). Maven - ok, probably you have [installed](http://maven.apache.org/download.html) it already...
 2. memcached: you should have installed memcached so that you can run the webapp with sessions replicated to memcached
 3. I don't mention java here :-)
 
@@ -10,9 +10,9 @@ It comes with two tomcats (in `runtime/`) that are configured with msm+kryo (msm
 For building you have two options: buildr or maven2.
 
 1. With buildr: After [installing buildr](http://buildr.apache.org/installing.html) just run
-    $ buildr package test=no
+    `$ buildr package test=no`
 2. With maven (you probably have it already installed) you can run
-    $ mvn -Dmaven.test.skip=true package
+    `$ mvn -Dmaven.test.skip=true package`
    As you will probably get some error that you need to install some dependencies,
    you have to follow mvn's instructions. All required msm and kryo libs are located in
    `lib/`. You should also be able to run `./install-mvn-deps.sh` which saves you some typing.
@@ -27,4 +27,4 @@ To start both tomcats just run
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
 
-Now you can access both tomcats with your browser on [http://localhost:8081/](http://localhost:8081/) and [http://localhost:8082/](http://localhost:8082/).
+Now you can access both tomcats with your browser on [http://localhost:8081/](http://localhost:8081/) and [http://localhost:8082/](http://localhost:8082/). To simulate a loadbalancer in front of your tomcats and a session failover just request the same url on the other tomcat (just change to port in the url).
