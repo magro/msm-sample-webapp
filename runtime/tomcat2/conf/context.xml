@@ -39,7 +39,6 @@
 	    sessionBackupAsync="false"
 	    sessionBackupTimeout="100"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
-            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketSerializerFactory"
     />
     
     <!-- 
@@ -47,6 +46,7 @@
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory"
             customConverter="de.javakaffee.web.msm.serializer.javolution.JodaDateTimeFormat"
+            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketSerializerFactory"
         transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.AaltoTranscoderFactory" -->
         
     <!-- 

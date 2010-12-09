@@ -37,16 +37,16 @@
 	    failoverNodes="n1"
 	    requestUriIgnorePattern=".*\.(png|gif|jpg|css|js|ico)$"
 	    sessionBackupAsync="false"
-	    sessionBackupTimeout="100"
-            transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
-            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketSerializerFactory"
+	    sessionBackupTimeout="500"
     />
     
     <!-- 
+            transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
             transcoderFactoryClass="de.javakaffee.web.msm.JavaSerializationTranscoderFactory"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory"
             customConverter="de.javakaffee.web.msm.serializer.javolution.JodaDateTimeFormat"
+            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketSerializerFactory"
         transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.AaltoTranscoderFactory" -->
         
     <!-- 
