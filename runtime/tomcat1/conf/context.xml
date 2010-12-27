@@ -37,7 +37,7 @@
 	    failoverNodes="n1"
 	    requestUriIgnorePattern=".*\.(png|gif|jpg|css|js|ico)$"
 	    sessionBackupAsync="false"
-	    sessionBackupTimeout="500"
+	    sessionBackupTimeout="100"
     />
     
     <!-- 

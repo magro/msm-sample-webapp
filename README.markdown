@@ -1,5 +1,5 @@
-A sample (wicket) webapp for playing with [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
-It comes with two tomcats (in `runtime/`) that are configured with msm+kryo (msm kryo-serializer) storing sessions in memcached.
+A sample (struts2) webapp for playing with [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
+It comes with two tomcats (in `runtime/`) that are configured with msm and default java serialization storing sessions in memcached.
 
 # Prerequisites
 1. [Buildr](http://buildr.apache.org)/[Maven](http://maven.apache.org): you should have installed one of both so that you're able to build the webapp. For buildr see [Installing & Running](http://buildr.apache.org/installing.html). Maven - ok, probably you have [installed](http://maven.apache.org/download.html) it already...
