@@ -17,6 +17,8 @@ KRYO = artifact( 'com.esotericsoftware:kryo:jar:1.02' ).from( file( 'lib/kryo-1.
 REFLECTASM = artifact('com.esotericsoftware:reflectasm:jar:0.8').from(file('lib/reflectasm-0.8.jar'))
 MINLOG = artifact('com.esotericsoftware:minlog:jar:1.2').from(file('lib/minlog-1.2.jar'))
 ASM = 'asm:asm:jar:3.2'
+# CATALINA = 'org.apache.tomcat:catalina:jar:6.0.26'
+MSM_LOCK = 'de.javakaffee.web.msm:msm-lock-support:jar:1.3.6'
 MSM_KRYO = artifact('de.javakaffee.web.msm:msm-kryo-serializer:jar:1.3.3').from(file('lib/msm-kryo-serializer-1.3.3.jar'))
 
 # testing
@@ -28,7 +30,7 @@ define 'msm-sample-webapp' do
   project.group = 'de.javakaffee.msm.sample'
   project.version = '1.0-SNAPSHOT'
   
-  compile.with SERVLET_API, SLF4J, WICKET, WICKET_EXT, WICKET_STUFF_ANNOT, JODA
+  compile.with SERVLET_API, SLF4J, WICKET, WICKET_EXT, WICKET_STUFF_ANNOT, JODA, MSM_LOCK
   
   test.with JUNIT
   test.using :testng

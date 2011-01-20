@@ -40,7 +40,7 @@
 	    sessionBackupTimeout="100"
             copyCollectionsForSerialization="true"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
-            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketMiniMapRegistration"
+            customConverter="de.javakaffee.web.msm.serializer.kryo.JodaDateTimeRegistration,de.javakaffee.web.msm.serializer.kryo.WicketSerializerFactory"
     />
     
     <!-- 

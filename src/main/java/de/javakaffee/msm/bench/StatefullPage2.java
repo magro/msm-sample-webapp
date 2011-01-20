@@ -19,14 +19,19 @@ package de.javakaffee.msm.bench;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.protocol.http.WebRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wicketstuff.annotation.mount.MountPath;
 import org.wicketstuff.annotation.strategy.MountHybrid;
+
+import de.javakaffee.web.msm.SessionLock;
 
 /**
  * Homepage.
@@ -68,6 +73,15 @@ public class StatefullPage2 extends BasePage {
             @Override
             public void onClick() {
                 LOG.info( "Link clicked: " + counter.incrementAndGet() + " " + foo );
+
+                final HttpSession httpSession = ( (WebRequest) getRequest() ).getHttpServletRequest().getSession();
+                SessionLock.lock( httpSession.getId() );
+                try {
+                    httpSession.setAttribute( "foo", "bar" );
+                } finally {
+                    SessionLock.unlock( httpSession.getId() );
+                }
+
             }
 
             @Override
