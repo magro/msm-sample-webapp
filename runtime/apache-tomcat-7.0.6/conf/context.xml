@@ -20,7 +20,7 @@
 
     <!-- Default set of monitored resources -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
-	
+
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
     <Manager pathname="" />
@@ -31,27 +31,5 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
-    
-    <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
-	    memcachedNodes="n1:localhost:11211 n2:localhost:11212"
-	    failoverNodes="n1"
-	    requestUriIgnorePattern=".*\.(png|gif|jpg|css|js|ico)$"
-	    sessionBackupAsync="false"
-	    sessionBackupTimeout="100"
-    />
-    
-    <!-- 
-            transcoderFactoryClass="de.javakaffee.web.msm.JavaSerializationTranscoderFactory"
-            transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
-            transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory"
-            customConverter="de.javakaffee.web.msm.serializer.javolution.JodaDateTimeFormat"
-        transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.AaltoTranscoderFactory" -->
-        
-    <!-- 
-        transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory" -->
-    <!-- 
-        transcoderFactoryClass="de.javakaffee.web.msm.serializer.xstream.XStreamTranscoderFactory" -->
-    <!-- 
-        transcoderFactoryClass="de.javakaffee.web.msm.serializer.xstream.XStreamTranscoderFactory" -->
 
 </Context>

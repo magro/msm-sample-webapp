@@ -1,19 +1,15 @@
-A sample (wicket) webapp for playing with [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
-It comes with two tomcats (in `runtime/`) that are configured with msm+kryo (msm kryo-serializer) storing sessions in memcached.
+A sample webapp for testing [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
+It comes with two tomcats (in `runtime/`) that are configured with plain java serialization for sticky sessions.
 
 # Prerequisites
-1. [Buildr](http://buildr.apache.org)/[Maven](http://maven.apache.org): you should have installed one of both so that you're able to build the webapp. For buildr see [Installing & Running](http://buildr.apache.org/installing.html). Maven - ok, probably you have [installed](http://maven.apache.org/download.html) it already...
+1. [Maven](http://maven.apache.org): you should have installed maven to be able to build the webapp.
 2. [memcached](http://memcached.org): you should have installed memcached so that you can run the webapp with sessions replicated to memcached
 3. I don't mention java here :-)
 
 # Building the webapp / war file
-For building you have two options: buildr or maven2.
-
-1. With buildr: After [installing buildr](http://buildr.apache.org/installing.html) just run
-    `$ buildr package test=no`
-2. With maven you first should install dependencies via `$ ./install-mvn-deps.sh` (this installs jars from `lib/`), then you can run
+1. Install required dependencies via `$ ./install-mvn-deps.sh` (this installs jars from `lib/`)
+2. Build the web application:
     `$ mvn -Dmaven.test.skip=true package`
-   to build the web application.
 
 # Running the webapp
 You can run the webapp using the preconfigured tomcats in `runtime/`. Before you start tomcat, make sure that you have started two memcached nodes:
@@ -25,4 +21,9 @@ To start both tomcats just run
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
 
-Now you can access both tomcats with your browser on [http://localhost:8081/](http://localhost:8081/) and [http://localhost:8082/](http://localhost:8082/). To simulate a loadbalancer in front of your tomcats and a session failover just request the same url on the other tomcat (just change to port in the url).
+Btw, there are 2 tomcat versions in `runtime/`, you can switch them via `./switch-tomcat.sh 7.0.6` or `./switch-tomcat.sh 6.0.20`.
+
+Now you can access both tomcats with your browser on [http://localhost:8081/list](http://localhost:8081/list) and [http://localhost:8082/list](http://localhost:8082/list), which lists the content of the sample object (CacheImpl).
+To add s.th. to the cache request [http://localhost:8081/put?foo=bar](http://localhost:8081/put?foo=bar), the foo/bar couple will show up the next time you request the list url.
+
+To see that the session can be taken over by the second tomcat just request [http://localhost:8082/list](http://localhost:8082/list), you have simulated a tomcat failover / session failover.
