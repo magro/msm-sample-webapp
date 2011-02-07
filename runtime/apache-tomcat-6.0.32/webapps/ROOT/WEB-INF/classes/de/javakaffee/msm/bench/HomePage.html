@@ -1,0 +1,23 @@
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd" >
+    <head>  
+        <title>msm benchmark homepage</title>
+    </head>
+    <body>
+        <div wicket:id="border">
+	        <span wicket:id="message">message will be here</span>
+	        <p></p>
+	        <div>
+	           <wicket:link>
+		           <ul>
+		               <li><a href = "StatelessPage.html">StatelessPage</a> - a simple page without any state.</li>
+	                   <li><a href = "SessionPage.html">SessionPage</a> - a page without real wicket state, but it creates an http session.</li>
+	                   <li><a href = "StatefullPage.html">StatefullPage</a> - a page with state (field based), you can click and increment a counter.</li>
+	                   <li><a href = "JodaTimePage.html">JodaTimePage</a> - a page with state (field based), you can click and enter the future.</li>
+                       <li><a href = "StatefullPage2.html">StatefullPage2</a> - a page with state (session based), you can click and increment a counter.</li>
+                       <li><a href = "ListLightPage.html">ListLightPage</a> - a page with state, showing a list of items for which their ids are stored in the session.</li>
+		           </ul>
+		       </wicket:link>
+	        </div>
+	    </div>
+    </body>
+</html>

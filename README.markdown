@@ -1,5 +1,7 @@
 A sample webapp for testing [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
-It comes with two tomcats (in `runtime/`) that are configured with plain java serialization for sticky sessions.
+It comes with two tomcat instances (in `runtime/`, tomcat1 and tomcat2) that are configured with plain java serialization for sticky sessions by default.
+To change the stickyness you can switch via `./switch-stickyness.sh sticky|nonsticky`.
+Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7.0.6), you can switch them via `./switch-tomcat.sh 7.0.6` or `./switch-tomcat.sh 6.0.32`.
 
 # Prerequisites
 1. [Maven](http://maven.apache.org): you should have installed maven to be able to build the webapp.
@@ -20,8 +22,6 @@ This is the cmd line that I'm using on my system with memcached installed using 
 To start both tomcats just run
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
-
-Btw, there are 2 tomcat versions in `runtime/`, you can switch them via `./switch-tomcat.sh 7.0.6` or `./switch-tomcat.sh 6.0.20`.
 
 Now you can access both tomcats with your browser on [http://localhost:8081/list](http://localhost:8081/list) and [http://localhost:8082/list](http://localhost:8082/list), which lists the content of the sample object (CacheImpl).
 To add s.th. to the cache request [http://localhost:8081/put?foo=bar](http://localhost:8081/put?foo=bar), the foo/bar couple will show up the next time you request the list url.
