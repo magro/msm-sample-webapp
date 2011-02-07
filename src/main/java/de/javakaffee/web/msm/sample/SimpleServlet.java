@@ -50,6 +50,12 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet( final HttpServletRequest request, final HttpServletResponse response )
             throws ServletException, IOException {
+
+        if ( "/favicon.ico".equals( request.getRequestURI() ) ) {
+            super.doGet( request, response );
+            return;
+        }
+
         final String pathInfo = request.getPathInfo();
         LOG.info( " + starting at path " + pathInfo );
 
