@@ -1,7 +1,7 @@
 A sample webapp for testing [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm).
 It comes with two tomcat instances (in `runtime/`, tomcat1 and tomcat2) that are configured with plain java serialization for sticky sessions by default.
 To change the stickyness you can switch via `./switch-stickyness.sh sticky|nonsticky`.
-Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7.0.6), you can switch them via `./switch-tomcat.sh 7.0.6` or `./switch-tomcat.sh 6.0.32`.
+Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7.0.8), you can switch them via `./switch-tomcat.sh 7.0.8` or `./switch-tomcat.sh 6.0.32`.
 
 # Prerequisites
 1. [Maven](http://maven.apache.org): you should have installed maven to be able to build the webapp.
@@ -9,7 +9,7 @@ Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7
 3. I don't mention java here :-)
 
 # Building the webapp / war file
-1. Install required dependencies via `$ ./install-mvn-deps.sh` (this installs jars from `lib/`)
+1. Install required dependencies via `$ ./install-mvn-deps.sh` (this installs jars from `lib/`, you can also do this manually)
 2. Build the web application:
     `$ mvn -Dmaven.test.skip=true package`
 
