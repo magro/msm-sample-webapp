@@ -23,6 +23,7 @@ This is the cmd line that I'm using on my system with memcached installed using 
 To start both tomcats just run
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
+(If you're getting an error like `SEVERE: Cannot find specified temporary folder at /path/to/msm-sample-webapp/runtime/tomcat1/temp` just create that folder and restart tomcat)
 
 Now you can access both tomcats with your browser on [http://localhost:8081/test.xhtml](http://localhost:8081/test.xhtml) and [http://localhost:8082/test.xhtml](http://localhost:8082/msm-sample-openwebbeans/test.xhtml).
 
