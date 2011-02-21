@@ -1,20 +1,47 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-	 version="2.4">
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-	<display-name>msm-sample-webapp</display-name>
-  
-    <servlet>
-        <servlet-name>simple</servlet-name>
-        <servlet-class>de.javakaffee.web.msm.sample.SimpleServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
 
-    <servlet-mapping>
-        <servlet-name>simple</servlet-name>
-        <url-pattern>/*</url-pattern>
-    </servlet-mapping>
+	<distributable />
+  <context-param>
+    <param-name>org.apache.myfaces.USE_ENCRYPTION</param-name>
+    <param-value>false</param-value>
+  </context-param>
 
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>org.apache.myfaces.COMPRESS_STATE_IN_SESSION</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>org.apache.myfaces.webapp.MyFacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
 </web-app>
