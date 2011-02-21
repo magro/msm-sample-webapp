@@ -9,6 +9,8 @@ Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7
 1. [Maven](http://maven.apache.org): you should have installed maven to be able to build the webapp.
 2. [memcached](http://memcached.org): you should have installed memcached so that you can run the webapp with sessions replicated to memcached
 3. I don't mention java here :-)
+4. Check that you're on the branch "openwebbeans". If not:
+    `$ git checkout --track -b openwebbeans origin/openwebbeans`
 
 # Building the webapp / war file
 1. Build the web application:
