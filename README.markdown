@@ -1,5 +1,7 @@
 A sample webapp for testing [memcached-session-manager](http://code.google.com/p/memcached-session-manager/) (msm) with [OpenWebBeans](http://openwebbeans.apache.org), specifically the combination of `@SessionScoped` with session failover. This does not work as expected, see the last paragraph below for details.
+
 This sample comes with two tomcat instances (in `runtime/`, tomcat1 and tomcat2) that are configured with plain java serialization for non-sticky sessions by default.
+
 To change the stickyness you can switch via `./switch-stickyness.sh sticky|nonsticky`.
 Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7.0.8), you can switch them via `./switch-tomcat.sh 7.0.8` or `./switch-tomcat.sh 6.0.32`.
 
@@ -10,7 +12,7 @@ Btw, there are 2 different tomcat versions available in `runtime/` (6.0.32 and 7
 
 # Building the webapp / war file
 1. Build the web application:
-    `$ mvn -Dmaven.test.skip=true package`
+    `$ mvn package`
 
 # Running the webapp
 You can run the webapp using the preconfigured tomcats in `runtime/`. Before you start tomcat, make sure that you have started two memcached nodes:
@@ -24,7 +26,7 @@ To start both tomcats just run
 
 Now you can access both tomcats with your browser on [http://localhost:8081/test.xhtml](http://localhost:8081/test.xhtml) and [http://localhost:8082/test.xhtml](http://localhost:8082/msm-sample-openwebbeans/test.xhtml).
 
-# Reproducing the issue with @SessionScoped beans
+# The issue with @SessionScoped beans and session failover / non-sticky sessions
 The `@SessionScoped` bean (represented by the first input field) seems to be not loaded correctly from the session.
 
 When playing with a single tomcat and non-sticky sessions (non-sticky sessions here means: the session is removed from tomcats session map at the end of the request, stored in memcached, and loaded from memcached into tomcats session map with the next request) the value stored in the session bean is kept as expected. When tomcat is restarted and `/test.xhtml` is requested again, the value is (unexpectadly) lost.
