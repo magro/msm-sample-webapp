@@ -59,6 +59,11 @@ public class SimpleServlet extends HttpServlet {
         final String pathInfo = request.getPathInfo();
         LOG.info( " + starting at path " + pathInfo );
 
+        if ( pathInfo.startsWith( "/readonly" ) ) {
+            response.getWriter().println( "readonly" );
+            return;
+        }
+
         final HttpSession session = request.getSession();
 
         if ( pathInfo.startsWith( "/put" ) ) {
@@ -77,6 +82,17 @@ public class SimpleServlet extends HttpServlet {
             for ( final Map.Entry<String, Object> entry : cache.entrySet() ) {
                 out.println( entry.getKey() + "=" + entry.getValue() );
             }
+        }
+        else if ( pathInfo.startsWith( "/swapSessionId" ) ) {
+            final Cache cache = getOrCreateCache( session );
+
+            final PrintWriter out = response.getWriter();
+            out.println( "old sessionId: " + session.getId() );
+            session.invalidate();
+
+            final HttpSession newSession = request.getSession();
+            newSession.setAttribute( "cache", cache );
+            out.println( "new sessionId: " + newSession.getId() );
         }
 
     }
