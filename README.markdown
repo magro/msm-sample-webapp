@@ -19,15 +19,19 @@ There are 2 different tomcat versions available in `runtime/` (6.0.32 and 7.0.8)
 
 # Building the webapp / war file
 1. Build the web application via maven:
+
     `$ mvn clean package`
 
 # Running the webapp
 You can run the webapp using the preconfigured tomcats in `runtime/`. Before you start tomcat, make sure that you have started two memcached nodes:
+
     $ memcached -p 11211 -u memcached -m 64 -M -vv &
     $ memcached -p 11212 -u memcached -m 64 -M -vv &
+
 This is the cmd line that I'm using on my system with memcached installed using the memcached user. -vv tells memcached to write lots of stuff to stdout, so you'll see when a session is requested or stored in the output of memcached.
 
 To start both tomcats just run
+
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
 
