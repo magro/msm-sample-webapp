@@ -1,4 +1,4 @@
-This is the slightly modified guessNumber sample from the [http://javaserverfaces.java.net/download.html](mojarra 2.0.4 binary release), to show how the JSF2 reference implementation plays with [http://code.google.com/p/memcached-session-manager](memcachd-session-manager).
+This is the slightly modified guessNumber sample from the [mojarra 2.0.4 binary release](http://javaserverfaces.java.net/download.html), to show how the JSF2 reference implementation plays with [memcachd-session-manager](http://code.google.com/p/memcached-session-manager).
 
 The text from the original `README.txt`:
 
