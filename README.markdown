@@ -5,7 +5,7 @@ The text from the original `README.txt`:
 
 The following changes were made to the sources of the mojarra 2.0.4 guessNumber sample:
 1. The `pom.xml` is patched to prevent conflicts with tomcats own el-api.jar (so el-api is excluded from artifacts in the pom.xml).
-2. The dependencies in `pom.xml` are extended by kryo libs, to see how kryo serialization works with mojarra (the required repository is added for this to work).
+2. The dependencies in `pom.xml` are extended by kryo libs, to see how kryo serialization works with mojarra (the required repository is added for this to work, to use kryo add "de.javakaffee.web.msm.serializer.kryo.FacesLRUMapRegistration" as customSerializer).
 3. In `src/main/webapp/WEB-INF/web.xml` the value of `javax.faces.STATE_SAVING_METHOD` is changed from `client` to `server`.
 
 The rest of the sample (runtime) works as in all other branches. It comes with two tomcat instances (in `runtime/`, tomcat1 and tomcat2) that are configured with plain java serialization for sticky sessions by default.

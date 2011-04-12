@@ -42,8 +42,10 @@
     />
     
     <!-- 
-            transcoderFactoryClass="de.javakaffee.web.msm.JavaSerializationTranscoderFactory"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
+            customConverter="de.javakaffee.web.msm.serializer.kryo.FacesLRUMapRegistration"
+
+            transcoderFactoryClass="de.javakaffee.web.msm.JavaSerializationTranscoderFactory"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory"
             customConverter="de.javakaffee.web.msm.serializer.javolution.JodaDateTimeFormat"
         transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.AaltoTranscoderFactory" -->
