@@ -1,51 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER. Copyright
+1997-2009 Sun Microsystems, Inc. All rights reserved. The contents of
+this file are subject to the terms of either the GNU General Public
+License Version 2 only ("GPL") or the Common Development and
+Distribution License("CDDL") (collectively, the "License"). You may
+not use this file except in compliance with the License. You can
+obtain a copy of the License at
+https://glassfish.dev.java.net/public/CDDL+GPL.html or
+glassfish/bootstrap/legal/LICENSE.txt. See the License for the
+specific language governing permissions and limitations under the
+License. When distributing the software, include this License Header
+Notice in each file and include the License file at
+glassfish/bootstrap/legal/LICENSE.txt. Sun designates this particular
+file as subject to the "Classpath" exception as provided by Sun in the
+GPL Version 2 section of the License file that accompanied this code.
+If applicable, add the following below the License Header, with the
+fields enclosed by brackets [] replaced by your own identifying
+information: "Portions Copyrighted [year] [name of copyright owner]"
+
+Contributor(s): If you wish your version of this file to be governed
+by only the CDDL or only the GPL Version 2, indicate your decision by
+adding "[Contributor] elects to include this software in this
+distribution under the [CDDL or GPL Version 2] license." If you don't
+indicate a single choice of license, a recipient has the option to
+distribute your version of this file under either the CDDL, the GPL
+Version 2 or to extend the choice of license to its licensees as
+provided above. However, if you add GPL Version 2 code and therefore,
+elected the GPL Version 2 license, then the option applies only if the
+new code is made subject to such option by the copyright holder.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
-    <groupId>de.javakaffee.msm.sample</groupId>
-    <artifactId>msm-sample-webapp</artifactId>
+    <groupId>com.sun.faces</groupId>
+    <artifactId>guessNumber</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <!-- TODO project name  -->
-    <name>msm-sample-webapp</name>
-    <description></description>
-    <!--
-        TODO <organization> <name>company name</name> <url>company
-        url</url> </organization>
-    -->
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+    <name>${project.artifactId}</name>
+    <url>https://mojarra.dev.java.net/</url>
+    <description>Example App</description>
+    <version>1.0</version>
+
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>RELEASE</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>java.net.m2</id>
+            <name>java.net m2 repo</name>
+            <url>http://download.java.net/maven/2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+        </repository>
+       <repository>
+            <id>glassfish-repo-archive</id>
+            <name>Nexus repository collection for Glassfish</name>
+            <url>http://maven.glassfish.org/content/groups/glassfish</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+        </repository>
+        <repository>
+            <id>ibiblio.mirrors</id>
+            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+        </repository>
+        <repository>
+            <id>codehaus</id>
+            <name>codehaus</name>
+            <url>http://repository.codehaus.org</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+        </repository>
+		<!-- msm maven repo with kryo jars -->
+		<repository>
+			<id>msm</id>
+			<name>msm repository</name>
+			<url>http://memcached-session-manager.googlecode.com/svn/maven</url>
+		</repository>
+		<!-- msm cloudbees snapshot maven repo with msm jars -->
+		<repository>
+			<id>msm cloudbees repo</id>
+			<name>msm cloudbees repository</name>
+			<url>http://repository-magro.forge.cloudbees.com/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+    </repositories>
+
     <dependencies>
+        <!--dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.0</version>
+            <scope>compile</scope>
+        </dependency-->
+
+        <!--
+          Uncomment these dependencies and comment out the one above to use
+          a simple servlet container instead of a Java EE Application Server
+          -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>[2.0.1,)</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>[2.0.1,)</version>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- LOGGING DEPENDENCIES - LOG4J -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.6</version>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
         </dependency>
+         <dependency>
+             <groupId>javax.servlet.jsp.jstl</groupId>
+             <artifactId>jstl-api</artifactId>
+             <version>1.2</version>
+             <exclusions>
+             	<exclusion>
+             		<groupId>javax.el</groupId>
+             		<artifactId>el-api</artifactId>
+             	</exclusion>
+             </exclusions>
+         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jstl-impl</artifactId>
+            <version>1.2</version>
+             <exclusions>
+             	<exclusion>
+             		<groupId>javax.el</groupId>
+             		<artifactId>el-api</artifactId>
+             	</exclusion>
+             </exclusions>
         </dependency>
 
         <!-- msm/kryo -->
         <dependency>
             <groupId>de.javakaffee.web.msm</groupId>
             <artifactId>msm-kryo-serializer</artifactId>
-            <version>1.4.0-RC1</version>
+            <version>1.4.2-SNAPSHOT</version>
             <scope>runtime</scope>
+             <exclusions>
+             	<exclusion>
+             		<groupId>de.javakaffee.web.msm</groupId>
+             		<artifactId>memcached-session-manager</artifactId>
+             	</exclusion>
+             	<exclusion>
+             		<groupId>de.javakaffee.web.msm</groupId>
+             		<artifactId>memcached-session-manager-tc7</artifactId>
+             	</exclusion>
+             </exclusions>
         </dependency>
         <dependency>
             <groupId>de.javakaffee</groupId>
@@ -56,71 +193,40 @@
         <dependency>
             <groupId>com.esotericsoftware</groupId>
             <artifactId>kryo</artifactId>
-            <version>1.03</version>
+            <version>1.04</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>com.esotericsoftware</groupId>
-            <artifactId>reflectasm</artifactId>
-            <version>0.9</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.esotericsoftware</groupId>
-            <artifactId>minlog</artifactId>
-            <version>1.2</version>
-            <scope>runtime</scope>
-        </dependency>
-
     </dependencies>
-    <build>
-        <resources>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <filtering>false</filtering>
-                <directory>src/test/java</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </testResource>
-        </testResources>
+    <reporting>
         <plugins>
             <plugin>
-                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <reportSets>
+                    <reportSet/>
+                </reportSets>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                    <optimize>true</optimize>
-                    <debug>true</debug>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <configuration>
-                    <downloadSources>true</downloadSources>
+                    <source>1.5</source>
+                    <target>1.5</target>
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </reporting>
+    <profiles>
+        <profile>
+            <id>default</id>
+            <!-- Tests are disabled by default.  See the test profile -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
 </project>
+

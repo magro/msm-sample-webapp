@@ -1,9 +1,0 @@
-Plugin: org.zeroturnaround.javarebel.integration.IntegrationPlugin
-Plugin: org.zeroturnaround.javarebel.integration.servlet.ServletIntegrationPlugin
-Class:org/mortbay/jetty/handler/ContextHandler
-Class:org/mortbay/jetty/servlet/ServletHandler
-Class:org/mortbay/jetty/handler/ContextHandler$SContext
-Class:javax/servlet/ServletContext
-Class:org/mortbay/jetty/webapp/WebAppClassLoader
-Class:org/apache/jasper/servlet/JspServlet
-Class:org/mortbay/jetty/servlet/DefaultServlet
