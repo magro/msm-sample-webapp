@@ -1,10 +1,10 @@
 This is the slightly modified guessNumber sample from the [http://javaserverfaces.java.net/download.html](mojarra 2.0.4 binary release), to show how the JSF2 reference implementation plays with [http://code.google.com/p/memcached-session-manager](memcachd-session-manager).
 
 The text from the original `README.txt`:
+
     This demo shows how to use resources to create a client side validator tag, and use it within a page.
 
-The following changes were made to the sources of the mojarra 2.0.4 guessNumber sample:
-
+# Changes made to the mojarra 2.0.4 guessNumber sample
 1. The `pom.xml` is patched to prevent conflicts with tomcats own el-api.jar (so el-api is excluded from artifacts in the pom.xml).
 2. The dependencies in `pom.xml` are extended by kryo libs, to see how kryo serialization works with mojarra (the required repository is added for this to work, to use kryo add "de.javakaffee.web.msm.serializer.kryo.FacesLRUMapRegistration" as customSerializer).
 3. In `src/main/webapp/WEB-INF/web.xml` the value of `javax.faces.STATE_SAVING_METHOD` is changed from `client` to `server`.
