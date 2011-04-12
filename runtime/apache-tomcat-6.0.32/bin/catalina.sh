@@ -84,10 +84,10 @@
 # $Id: catalina.sh 1040547 2010-11-30 14:47:49Z markt $
 # -----------------------------------------------------------------------------
 
-CATALINA_OPTS="-Dcom.sun.management.jmxremote \
-    -Dcom.sun.management.jmxremote.port=1099 \
-    -Dcom.sun.management.jmxremote.ssl=false \
-    -Dcom.sun.management.jmxremote.authenticate=false"
+#CATALINA_OPTS="-Dcom.sun.management.jmxremote \
+#    -Dcom.sun.management.jmxremote.port=1099 \
+#    -Dcom.sun.management.jmxremote.ssl=false \
+#    -Dcom.sun.management.jmxremote.authenticate=false"
 
 # OS specific support.  $var _must_ be set to either true or false.
 cygwin=false
