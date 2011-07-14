@@ -39,6 +39,7 @@
 	    requestUriIgnorePattern=".*\.(png|gif|jpg|css|js|ico)$"
 	    sessionBackupAsync="false"
 	    sessionBackupTimeout="100"
+            transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
     />
     
     <!-- 
