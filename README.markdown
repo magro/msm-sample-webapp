@@ -23,7 +23,7 @@ To start both tomcats just run
     $ ./runtime/tomcat1/bin/catalina.sh run &
     $ ./runtime/tomcat2/bin/catalina.sh run &
 
-Now you can access both tomcats with your browser on [http://localhost:8081/list](http://localhost:8081/list) and [http://localhost:8082/list](http://localhost:8082/list), which lists the content of the sample object (CacheImpl).
-To add s.th. to the cache request [http://localhost:8081/put?foo=bar](http://localhost:8081/put?foo=bar), the foo/bar couple will show up the next time you request the list url.
+Now you can access both tomcats with your browser on [http://localhost:8081/protected/list](http://localhost:8081/protected/list) and [http://localhost:8082/protected/list](http://localhost:8082/protected/list), which lists the content of the sample object (CacheImpl). Before you can access the given url, you have to sign in with username/password (tomcat/tomcat).
+To add s.th. to the cache request [http://localhost:8081/protected/put?foo=bar](http://localhost:8081/protected/put?foo=bar), the foo/bar couple will show up the next time you request the list url.
 
-To see that the session can be taken over by the second tomcat just request [http://localhost:8082/list](http://localhost:8082/list), you have simulated a tomcat failover / session failover.
+To see that the session can be taken over by the second tomcat just request [http://localhost:8082/protected/list](http://localhost:8082/protected/list), you have simulated a tomcat failover / session failover.
