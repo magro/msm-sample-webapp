@@ -42,33 +42,9 @@
 
         <!-- msm/kryo -->
         <dependency>
-            <groupId>de.javakaffee.web.msm</groupId>
+            <groupId>de.javakaffee.msm</groupId>
             <artifactId>msm-kryo-serializer</artifactId>
-            <version>1.4.2-SNAPSHOT</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.javakaffee</groupId>
-            <artifactId>kryo-serializers</artifactId>
-            <version>0.8</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.esotericsoftware</groupId>
-            <artifactId>kryo</artifactId>
-            <version>1.04</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.esotericsoftware</groupId>
-            <artifactId>reflectasm</artifactId>
-            <version>0.9</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.esotericsoftware</groupId>
-            <artifactId>minlog</artifactId>
-            <version>1.2</version>
+            <version>1.5.0</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -90,18 +66,6 @@
                 </excludes>
             </resource>
         </resources>
-        <testResources>
-            <testResource>
-                <filtering>false</filtering>
-                <directory>src/test/java</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </testResource>
-        </testResources>
         <plugins>
             <plugin>
                 <inherited>true</inherited>
@@ -123,11 +87,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>msm maven repo</id>
-            <url>http://memcached-session-manager.googlecode.com/svn/maven</url>
-        </repository>
-    </repositories>
 </project>
