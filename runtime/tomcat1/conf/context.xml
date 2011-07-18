@@ -41,6 +41,23 @@
 	    sessionBackupTimeout="100"
             transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
     />
+
+	<Resource name="jdbc/UserDatabase" auth="Container"
+		type="javax.sql.DataSource" 
+		driverClassName="org.hsqldb.jdbcDriver"
+		url="jdbc:hsqldb:hsql://localhost:9001/userdb"
+		username="sa"
+		password=""
+		maxActive="20" maxIdle="10" maxWait="-1" />
+
+	<Realm className="org.apache.catalina.realm.DataSourceRealm"
+		dataSourceName="jdbc/UserDatabase"
+		localDataSource="true"
+		userTable="users"
+		userNameCol="user_name"
+		userCredCol="user_pass"
+		userRoleTable="user_roles"
+		roleNameCol="role_name" />
     
     <!-- 
             transcoderFactoryClass="de.javakaffee.web.msm.JavaSerializationTranscoderFactory"
