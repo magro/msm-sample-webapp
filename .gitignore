@@ -1,0 +1,6 @@
+runtime/tomcat*/logs/
+runtime/tomcat*/work/
+runtime/apache-tomcat-*/webapps/ROOT/
+runtime/hsqldb/hsql-userdb.log
+runtime/hsqldb/hsql-userdb.properties
+runtime/hsqldb/hsql-userdb.properties.new
