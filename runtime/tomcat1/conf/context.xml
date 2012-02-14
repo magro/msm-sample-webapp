@@ -33,9 +33,10 @@
     -->
     
     <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
-	    sticky="true"
-	    memcachedNodes="n1:localhost:11211 n2:localhost:11212"
-	    failoverNodes="n1"
+	    sticky="false"
+	    memcachedNodes="localhost:11211"
+	    failoverNodes=""
+            lockingMode="all"
 	    requestUriIgnorePattern=".*\.(png|gif|jpg|css|js|ico)$"
 	    sessionBackupAsync="false"
 	    sessionBackupTimeout="100"
