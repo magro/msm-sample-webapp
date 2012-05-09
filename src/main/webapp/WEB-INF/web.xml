@@ -13,7 +13,19 @@
 
 	<servlet-mapping>
 		<servlet-name>simple</servlet-name>
-		<url-pattern>/protected/*</url-pattern>
+		<url-pattern>/protected/list</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>simple</servlet-name>
+		<url-pattern>/protected/put</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>simple</servlet-name>
+		<url-pattern>/protected/swapSessionId</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>simple</servlet-name>
+		<url-pattern>/protected/readonly</url-pattern>
 	</servlet-mapping>
 
 	<security-constraint>
