@@ -26,7 +26,6 @@
   <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
   <Listener className="org.apache.catalina.core.JasperListener" />
   <!-- JMX Support for the Tomcat server. Documentation at /docs/non-existent.html -->
-  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener" />
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
 
   <!-- Global JNDI resources

@@ -39,7 +39,7 @@ public class SimpleServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Logger LOG = LoggerFactory.getLogger( SimpleServlet.class );
+    private static final Logger LOG = LoggerFactory.getLogger(SimpleServlet.class);
 
     /*
      * (non-Javadoc)
@@ -48,60 +48,63 @@ public class SimpleServlet extends HttpServlet {
      * javax.servlet.http.HttpServletResponse)
      */
     @Override
-    protected void doGet( final HttpServletRequest request, final HttpServletResponse response )
-            throws ServletException, IOException {
+    protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException,
+            IOException {
 
-        if ( "/favicon.ico".equals( request.getRequestURI() ) ) {
-            super.doGet( request, response );
+        if ("/favicon.ico".equals(request.getRequestURI())) {
+            super.doGet(request, response);
             return;
         }
 
         final String pathInfo = request.getPathInfo();
-        LOG.info( " + starting at path " + pathInfo );
+        LOG.info(" + starting at path " + pathInfo);
 
-        if ( pathInfo.startsWith( "/readonly" ) ) {
-            response.getWriter().println( "readonly" );
+        if (pathInfo.startsWith("/readonly")) {
+            response.getWriter().println("readonly");
+            return;
+        }
+
+        if (!(pathInfo.startsWith("/put") || pathInfo.startsWith("/list") || pathInfo.startsWith("/swapSessionId"))) {
+            super.doGet(request, response);
             return;
         }
 
         final HttpSession session = request.getSession();
 
-        if ( pathInfo.startsWith( "/put" ) ) {
-            final Cache cache = getOrCreateCache( session );
-            @SuppressWarnings( "unchecked" )
+        if (pathInfo.startsWith("/put")) {
+            final Cache cache = getOrCreateCache(session);
+            @SuppressWarnings("unchecked")
             final Enumeration<String> names = request.getParameterNames();
-            while ( names.hasMoreElements() ) {
+            while (names.hasMoreElements()) {
                 final String name = names.nextElement();
-                final String value = request.getParameter( name );
-                cache.put( name, value );
+                final String value = request.getParameter(name);
+                cache.put(name, value);
             }
-        }
-        else if ( pathInfo.startsWith( "/list" ) ) {
+        } else if (pathInfo.startsWith("/list")) {
             final PrintWriter out = response.getWriter();
-            final Cache cache = getOrCreateCache( session );
-            for ( final Map.Entry<String, Object> entry : cache.entrySet() ) {
-                out.println( entry.getKey() + "=" + entry.getValue() );
+            final Cache cache = getOrCreateCache(session);
+            for (final Map.Entry<String, Object> entry : cache.entrySet()) {
+                out.println(entry.getKey() + "=" + entry.getValue());
             }
-        }
-        else if ( pathInfo.startsWith( "/swapSessionId" ) ) {
-            final Cache cache = getOrCreateCache( session );
+        } else if (pathInfo.startsWith("/swapSessionId")) {
+            final Cache cache = getOrCreateCache(session);
 
             final PrintWriter out = response.getWriter();
-            out.println( "old sessionId: " + session.getId() );
+            out.println("old sessionId: " + session.getId());
             session.invalidate();
 
             final HttpSession newSession = request.getSession();
-            newSession.setAttribute( "cache", cache );
-            out.println( "new sessionId: " + newSession.getId() );
+            newSession.setAttribute("cache", cache);
+            out.println("new sessionId: " + newSession.getId());
         }
 
     }
 
-    private Cache getOrCreateCache( final HttpSession session ) {
-        Cache cache = (Cache) session.getAttribute( "cache" );
-        if ( cache == null ) {
+    private Cache getOrCreateCache(final HttpSession session) {
+        Cache cache = (Cache) session.getAttribute("cache");
+        if (cache == null) {
             cache = new CacheImpl();
-            session.setAttribute( "cache", cache );
+            session.setAttribute("cache", cache);
         }
         return cache;
     }
