@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.javakaffee.msm.sample</groupId>
     <artifactId>msm-sample-webapp</artifactId>
@@ -8,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <!-- TODO project name  -->
     <name>msm-sample-webapp</name>
-    <description></description>
+    <description>A sample (wicket) webapp for playing with memcached-session-manager</description>
     <!--
         TODO <organization> <name>company name</name> <url>company
         url</url> </organization>
@@ -74,7 +73,7 @@
         <dependency>
             <groupId>de.javakaffee.msm</groupId>
             <artifactId>msm-kryo-serializer</artifactId>
-            <version>1.6.3</version>
+            <version>1.8.3</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
@@ -137,11 +136,11 @@
             <id>msm maven repo</id>
             <url>http://memcached-session-manager.googlecode.com/svn/maven</url>
         </repository>
-		<repository>
-			<id>sonatype-releases</id>
-			<name>sonatype releases repo</name>
-			<url>https://oss.sonatype.org/content/repositories/releases</url>
-		</repository>
+        <repository>
+            <id>sonatype-releases</id>
+            <name>sonatype releases repo</name>
+            <url>https://oss.sonatype.org/content/repositories/releases</url>
+        </repository>
     </repositories>
 
 </project>
